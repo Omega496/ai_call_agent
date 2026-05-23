@@ -1,0 +1,27 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+start.sh
+AGENTS.md
+notes.md
+temp.md
+.pytest_cache/
+
+# Local databases
+*.db
+rag/chroma_db/
+
+# Tooling and IDE configuration
+.understand-anything/
+.vscode/
+.idea/
+.DS_Store
+

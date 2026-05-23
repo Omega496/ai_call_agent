@@ -1,0 +1,61 @@
+[project]
+name = "ai-call-assistant"
+version = "0.1.0"
+description = "Automated customer-service voice agent for hospital clients"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # Web Framework & HTTP
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.28.0",
+    "python-multipart>=0.0.9",
+    "aiohttp>=3.9.0",
+
+    # Telephony
+    "twilio>=9.0.0",
+
+    # Deepgram (STT & TTS)
+    "deepgram-sdk>=3.0.0",
+
+    # AI & Orchestration
+    "langchain>=0.1.0",
+    "langchain-core>=0.1.30",
+    "langchain-community>=0.0.30",
+    "langchain-ollama>=0.0.1",
+    "langgraph>=0.0.1",
+    "langsmith>=0.1.0",
+
+    # Vector DB
+    "chromadb>=0.4.24",
+
+    # Database & ORM
+    "sqlalchemy>=2.0.0",
+
+    # Settings & Environment
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.0",
+    "python-dotenv>=1.0.0",
+    
+    # Utilities
+    "websockets>=12.0",
+]
+
+[dependency-groups]
+dev = [
+    # Testing
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-mock>=3.12.0",
+    "httpx>=0.25.0",
+
+    # Formatting & Linting
+    "black>=24.0.0",
+    "ruff>=0.3.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = []
