@@ -164,33 +164,30 @@ LOG_LEVEL=INFO
 ### 1. Prerequisite Installations
 Ensure you have **Python 3.11+** installed. Download and start [Ollama](https://ollama.com) on your local machine, then pull the required models:
 ```bash
-ollama pull nemotron-3-super:120b
+ollama pull nemotron-3-super:cloud
 ollama pull nomic-embed-text:v1.5
 ```
 
 ### 2. Set Up Virtual Environment & Dependencies
-Initialize and activate your Python environment:
+Initialize your environment and install dependencies using [uv](https://github.com/astral-sh/uv):
 ```bash
-python3.11 -m venv .venv
+# Create a virtual environment and install all dependencies from pyproject.toml / uv.lock
+uv sync
+
+# Activate the virtual environment
 source .venv/bin/activate
-```
-Install the package along with its execution dependencies:
-```bash
-pip install -r requirements.txt
-# Alternatively, install using setuptools:
-pip install .
 ```
 
 ### 3. Ingest FAQ Documentation
 Populate the local vector store with the synthetic hospital FAQ database:
 ```bash
-python -m rag.ingestor
+uv run python -m rag.ingestor
 ```
 
 ### 4. Run the FastAPI Application
 Start the uvicorn development server:
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 5000 --reload
+uv run uvicorn main:app --host 0.0.0.0 --port 5000 --reload
 ```
 
 ### 5. Open Tunnel & Wire Telephony Webhook
@@ -217,5 +214,6 @@ The test suite contains comprehensive unit and integration testing across mock A
 
 To run tests in isolation:
 ```bash
-pytest tests/ -v
+uv run pytest tests/ -v
 ```
+
