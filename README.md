@@ -59,7 +59,7 @@ Caller ──> Twilio (Virtual Number) ──> TwiML Bin / Connect Webhook
                                  │ (conditional routing)     │
             ┌────────────────────┼────────────────────┐      │
             ▼                    ▼                    ▼      │
-       [faq_node]        [order_status_node]   [scheduler_node]   │
+       [faq_node]        [order_status_node]   [scheduler_node]
       RAG & ChromaDB       Mock GET /orders     Slot Filling │
             └────────────────────┬────────────────────┘      │
                                  ▼                           │
